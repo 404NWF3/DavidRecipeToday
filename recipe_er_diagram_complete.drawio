@@ -1,0 +1,392 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.5 Chrome/138.0.7204.251 Electron/37.6.1 Safari/537.36" version="28.2.5">
+  <diagram name="菜谱系统 ER 图" id="recipe-system-er">
+    <mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="2200" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Title -->
+        <mxCell id="title" value="&lt;b&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;DavidRecipeToday - 实体关系模型 (ER Diagram)&lt;/font&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="500" y="30" width="600" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- ========== Users Entity ========== -->
+        <mxCell id="entity-users" value="&lt;b&gt;Users&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="200" y="150" width="120" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-user-id" value="&lt;u&gt;user_id&lt;/u&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-username" value="username" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="210" y="80" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-email" value="email" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="310" y="90" width="70" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-password" value="password" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="100" y="160" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-user-created" value="created_at" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="100" y="220" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-1" edge="1" parent="1" source="attr-user-id" target="entity-users">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-2" edge="1" parent="1" source="attr-username" target="entity-users">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-3" edge="1" parent="1" source="attr-email" target="entity-users">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-4" edge="1" parent="1" source="attr-password" target="entity-users">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-5" edge="1" parent="1" source="attr-user-created" target="entity-users">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- ========== Recipes Entity ========== -->
+        <mxCell id="entity-recipes" value="&lt;b&gt;Recipes&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="700" y="400" width="120" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-recipe-id" value="&lt;u&gt;recipe_id&lt;/u&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="580" y="350" width="90" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-title" value="title" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="710" y="320" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-description" value="description" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="820" y="330" width="90" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-instructions" value="instructions" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="560" y="410" width="90" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-prep-time" value="prep_time" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="550" y="470" width="90" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-cook-time" value="cook_time" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="660" y="500" width="90" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-servings" value="servings" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="780" y="500" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-image-url" value="image_url" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="870" y="470" width="90" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-difficulty" value="difficulty" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="900" y="410" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-10" edge="1" parent="1" source="attr-recipe-id" target="entity-recipes">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-11" edge="1" parent="1" source="attr-title" target="entity-recipes">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-12" edge="1" parent="1" source="attr-description" target="entity-recipes">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-13" edge="1" parent="1" source="attr-instructions" target="entity-recipes">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-14" edge="1" parent="1" source="attr-prep-time" target="entity-recipes">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-15" edge="1" parent="1" source="attr-cook-time" target="entity-recipes">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-16" edge="1" parent="1" source="attr-servings" target="entity-recipes">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-17" edge="1" parent="1" source="attr-image-url" target="entity-recipes">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-18" edge="1" parent="1" source="attr-difficulty" target="entity-recipes">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- ========== Ingredients Entity ========== -->
+        <mxCell id="entity-ingredients" value="&lt;b&gt;Ingredients&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="700" y="700" width="120" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-ingredient-id" value="&lt;u&gt;ingredient_id&lt;/u&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="600" y="780" width="100" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-ing-name" value="name" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="730" y="790" width="70" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-category" value="category" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="830" y="780" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-aliases" value="aliases" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;shape=doubleEllipse;" vertex="1" parent="1">
+          <mxGeometry x="920" y="730" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-unit" value="unit" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="720" width="70" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-20" edge="1" parent="1" source="attr-ingredient-id" target="entity-ingredients">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-21" edge="1" parent="1" source="attr-ing-name" target="entity-ingredients">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-22" edge="1" parent="1" source="attr-category" target="entity-ingredients">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-23" edge="1" parent="1" source="attr-aliases" target="entity-ingredients">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-24" edge="1" parent="1" source="attr-unit" target="entity-ingredients">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- ========== Tags Entity ========== -->
+        <mxCell id="entity-tags" value="&lt;b&gt;Tags&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="400" width="120" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-tag-id" value="&lt;u&gt;tag_id&lt;/u&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="330" width="70" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-tag-name" value="tag_name" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="320" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-tag-type" value="tag_type" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="360" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-30" edge="1" parent="1" source="attr-tag-id" target="entity-tags">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-31" edge="1" parent="1" source="attr-tag-name" target="entity-tags">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-32" edge="1" parent="1" source="attr-tag-type" target="entity-tags">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- ========== User_Preferences Entity ========== -->
+        <mxCell id="entity-preferences" value="&lt;b&gt;User_Preferences&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=13;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="190" y="350" width="140" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-pref-id" value="&lt;u&gt;preference_id&lt;/u&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="80" y="310" width="100" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-diet-type" value="diet_type" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="210" y="280" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-allergens" value="allergens" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;shape=doubleEllipse;" vertex="1" parent="1">
+          <mxGeometry x="320" y="300" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-40" edge="1" parent="1" source="attr-pref-id" target="entity-preferences">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-41" edge="1" parent="1" source="attr-diet-type" target="entity-preferences">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-42" edge="1" parent="1" source="attr-allergens" target="entity-preferences">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- ========== Relationship: Contains (Recipe-Ingredient) ========== -->
+        <mxCell id="rel-contains" value="&lt;b&gt;Contains&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=13;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="710" y="540" width="100" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-quantity" value="quantity_display" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="580" y="540" width="110" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-is-core" value="is_core_ingredient" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="840" y="540" width="120" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-notes" value="notes" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="600" width="70" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-50" edge="1" parent="1" source="attr-quantity" target="rel-contains">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-51" edge="1" parent="1" source="attr-is-core" target="rel-contains">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-52" edge="1" parent="1" source="attr-notes" target="rel-contains">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-53" edge="1" parent="1" source="entity-recipes" target="rel-contains" style="strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="label-recipe-1" value="&lt;b&gt;1&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="760" y="465" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="label-recipe-n" value="&lt;b&gt;n&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="760" y="515" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-54" edge="1" parent="1" source="rel-contains" target="entity-ingredients" style="strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="label-ingredient-m" value="&lt;b&gt;m&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="760" y="625" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="label-ingredient-1" value="&lt;b&gt;1&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="760" y="670" width="30" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- ========== Relationship: Has_Tag (Recipe-Tag) ========== -->
+        <mxCell id="rel-has-tag" value="&lt;b&gt;Has_Tag&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=13;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="920" y="390" width="100" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-60" edge="1" parent="1" source="entity-recipes" target="rel-has-tag" style="strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="label-tag-n" value="&lt;b&gt;n&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="825" y="405" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-61" edge="1" parent="1" source="rel-has-tag" target="entity-tags" style="strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="label-tag-m" value="&lt;b&gt;m&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1025" y="405" width="30" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- ========== Relationship: Favorites (User-Recipe) ========== -->
+        <mxCell id="rel-favorites" value="&lt;b&gt;Favorites&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=13;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="410" y="270" width="100" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-favorited-at" value="favorited_at" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="360" y="200" width="90" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-70" edge="1" parent="1" source="attr-favorited-at" target="rel-favorites">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-71" edge="1" parent="1" source="entity-users" target="rel-favorites" style="strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="label-user-fav-n" value="&lt;b&gt;n&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="325" y="160" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-72" edge="1" parent="1" source="rel-favorites" target="entity-recipes" style="strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="310"/>
+              <mxPoint x="630" y="370"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label-recipe-fav-m" value="&lt;b&gt;m&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="595" y="340" width="30" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- ========== Relationship: Owns (User-Ingredient) ========== -->
+        <mxCell id="rel-owns" value="&lt;b&gt;Owns&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=13;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="410" y="600" width="100" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-quantity-owned" value="quantity" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="350" y="540" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="attr-added-at" value="added_at" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="470" y="540" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-80" edge="1" parent="1" source="attr-quantity-owned" target="rel-owns">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-81" edge="1" parent="1" source="attr-added-at" target="rel-owns">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-82" edge="1" parent="1" source="entity-users" target="rel-owns" style="strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="260" y="270"/>
+              <mxPoint x="340" y="450"/>
+              <mxPoint x="390" y="590"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label-user-owns-1" value="&lt;b&gt;1&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="275" y="240" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-83" edge="1" parent="1" source="rel-owns" target="entity-ingredients" style="strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="label-ingredient-owns-m" value="&lt;b&gt;m&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="605" y="700" width="30" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- ========== Relationship: Has (User-Preference) ========== -->
+        <mxCell id="rel-has-pref" value="&lt;b&gt;Has&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=13;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="210" y="240" width="80" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-90" edge="1" parent="1" source="entity-users" target="rel-has-pref" style="strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="label-user-pref-1-top" value="&lt;b&gt;1&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="250" y="215" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-91" edge="1" parent="1" source="rel-has-pref" target="entity-preferences" style="strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="label-pref-1-bottom" value="&lt;b&gt;1&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="250" y="305" width="30" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- ========== Legend ========== -->
+        <mxCell id="legend-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;dashed=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="100" y="900" width="550" height="250" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-title" value="&lt;b&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;图例说明 (Legend)&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="270" y="910" width="180" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-1" value="• &lt;b&gt;矩形&lt;/b&gt; = 实体集 (Entity Set)" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="120" y="950" width="220" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-2" value="• &lt;b&gt;菱形&lt;/b&gt; = 联系集 (Relationship Set)" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="120" y="980" width="260" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-3" value="• &lt;b&gt;椭圆&lt;/b&gt; = 属性 (Attribute)" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1010" width="210" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-4" value="• &lt;b&gt;&lt;u&gt;下划线&lt;/u&gt;&lt;/b&gt; = 主键 (Primary Key)" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1040" width="240" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-5" value="• &lt;b&gt;虚线椭圆&lt;/b&gt; = 可选属性 (Nullable)" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1070" width="260" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-6" value="• &lt;b&gt;双层椭圆&lt;/b&gt; = 多值属性 (Multivalued)" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1100" width="280" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-7" value="• &lt;b&gt;1, n, m&lt;/b&gt; = 基数约束 (Cardinality)" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="380" y="950" width="250" height="25" as="geometry"/>
+        </mxCell>
+        
+        <!-- ========== Business Notes ========== -->
+        <mxCell id="notes-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;align=left;verticalAlign=top;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="700" y="900" width="500" height="250" as="geometry"/>
+        </mxCell>
+        <mxCell id="notes-title" value="&lt;b&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;核心业务规则 (Key Business Rules)&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="810" y="910" width="300" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="notes-1" value="1. &lt;b&gt;is_core_ingredient&lt;/b&gt; 标识核心食材，用于匹配算法" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=11;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="720" y="950" width="350" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="notes-2" value="2. &lt;b&gt;User_Pantry (Owns)&lt;/b&gt; 存储用户虚拟食品柜" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=11;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="720" y="975" width="340" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="notes-3" value="3. &lt;b&gt;Tags&lt;/b&gt; 支持按菜系、餐食类型、饮食偏好筛选" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=11;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="720" y="1000" width="360" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="notes-4" value="4. &lt;b&gt;User_Preferences&lt;/b&gt; 存储饮食限制与过敏原信息" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=11;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="720" y="1025" width="380" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="notes-5" value="5. &lt;b&gt;aliases (多值)&lt;/b&gt; 支持食材模糊搜索 (如: 土豆=马铃薯)" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=11;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="720" y="1050" width="420" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="notes-6" value="6. &lt;b&gt;Recipe-Ingredient (n:m)&lt;/b&gt; 允许一个菜谱多种食材" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=11;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="720" y="1075" width="400" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="notes-7" value="7. &lt;b&gt;User-Recipe Favorites (n:m)&lt;/b&gt; 多用户可收藏多个菜谱" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=11;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="720" y="1100" width="420" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- Participation Constraint Labels -->
+        <mxCell id="participation-note" value="&lt;b&gt;参与约束:&lt;/b&gt; 粗线=全参与, 细线=部分参与" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=11;fontColor=#666666;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="600" y="850" width="320" height="20" as="geometry"/>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

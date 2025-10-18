@@ -99,7 +99,7 @@
 
    
 
-   $$$$其中 ![img](data:,) 和 ![img](data:,) 是权重。我们优先推荐“匹配度高”且“缺失食材少”的菜谱。例如，可以优先展示 `missing_count = 0` 或 `missing_count = 1` 的菜谱。
+   其中 ![img](data:,) 和 ![img](data:,) 是权重。我们优先推荐“匹配度高”且“缺失食材少”的菜谱。例如，可以优先展示 `missing_count = 0` 或 `missing_count = 1` 的菜谱。
 
 **SQL实现思路 (以PostgreSQL为例):**
 

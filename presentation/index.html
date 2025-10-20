@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>食材菜谱推荐系统 - 项目演示</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind CSS配置 - 自定义颜色主题
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': {
+                            50: '#f5f3f1',
+                            100: '#cdc3b9',
+                            200: '#b5a89a',
+                            300: '#9d8d7b',
+                            400: '#8c7766',
+                            500: '#7a6553',
+                            600: '#685444',
+                            700: '#564335',
+                            800: '#443226',
+                            900: '#322117',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- 演示容器 -->
+    <div id="app" class="relative w-full h-screen overflow-hidden bg-neutral-50 dark:bg-neutral-900 transition-colors duration-300">
+
+        <!-- 页面容器 -->
+        <div id="slides-container" class="relative w-full h-full">
+
+            <!-- Slide 1: 封面页 -->
+            <div class="slide absolute w-full h-full flex items-center justify-center opacity-100 transition-opacity duration-500">
+                <div class="max-w-5xl mx-auto px-8 text-center">
+                    <div class="mb-8">
+                        <div class="inline-block px-6 py-2 bg-amber-100 dark:bg-amber-900/30 text-amber-900 dark:text-amber-200 rounded-full text-sm font-medium mb-6">
+                            数据库课程设计
+                        </div>
+                    </div>
+                    <h1 class="text-6xl md:text-7xl font-bold text-neutral-900 dark:text-neutral-100 mb-6 tracking-tight">
+                        食材菜谱推荐系统
+                    </h1>
+                    <p class="text-2xl text-neutral-600 dark:text-neutral-400 mb-12">
+                        基于用户食材的智能菜谱匹配平台
+                    </p>
+                    <div class="flex justify-center gap-4 text-neutral-500 dark:text-neutral-500 text-sm">
+                        <span>Recipe Today</span>
+                        <span>•</span>
+                        <span>2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: 目录页 -->
+            <div class="slide absolute w-full h-full flex items-center justify-center opacity-0 transition-opacity duration-500">
+                <div class="max-w-4xl mx-auto px-8 w-full">
+                    <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100 mb-16 text-center">
+                        目录
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-8 bg-white dark:bg-neutral-800 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:border-amber-600 dark:hover:border-amber-600 transition-all duration-300 hover:shadow-lg">
+                            <div class="text-amber-700 dark:text-amber-400 text-4xl font-bold mb-4">01</div>
+                            <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-2">业务背景</h3>
+                            <p class="text-neutral-600 dark:text-neutral-400 text-sm">项目起源与解决的核心问题</p>
+                        </div>
+                        <div class="p-8 bg-white dark:bg-neutral-800 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:border-amber-600 dark:hover:border-amber-600 transition-all duration-300 hover:shadow-lg">
+                            <div class="text-amber-700 dark:text-amber-400 text-4xl font-bold mb-4">02</div>
+                            <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-2">用户需求</h3>
+                            <p class="text-neutral-600 dark:text-neutral-400 text-sm">功能需求与用户故事</p>
+                        </div>
+                        <div class="p-8 bg-white dark:bg-neutral-800 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:border-amber-600 dark:hover:border-amber-600 transition-all duration-300 hover:shadow-lg">
+                            <div class="text-amber-700 dark:text-amber-400 text-4xl font-bold mb-4">03</div>
+                            <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-2">ER模型</h3>
+                            <p class="text-neutral-600 dark:text-neutral-400 text-sm">数据库设计与实体关系</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: 业务背景 -->
+            <div class="slide absolute w-full h-full flex items-center justify-center opacity-0 transition-opacity duration-500">
+                <div class="max-w-5xl mx-auto px-8 w-full">
+                    <div class="mb-12">
+                        <span class="text-amber-700 dark:text-amber-400 text-sm font-medium">01 - 业务背景</span>
+                        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100 mt-4">
+                            项目背景与核心价值
+                        </h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <div class="p-6 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700">
+                                <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3 flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-amber-600 rounded-full"></span>
+                                    痛点识别
+                                </h3>
+                                <p class="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                                    用户常常面临"有食材不知道做什么"的困境,传统菜谱搜索需要精确输入菜名,无法基于现有食材进行智能匹配。
+                                </p>
+                            </div>
+                            <div class="p-6 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700">
+                                <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3 flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-amber-600 rounded-full"></span>
+                                    创新方案
+                                </h3>
+                                <p class="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                                    通过反向匹配机制,用户输入现有食材,系统推荐可制作的菜谱,并标注缺少的食材,降低烹饪门槛。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="p-6 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700">
+                                <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3 flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-amber-600 rounded-full"></span>
+                                    应用场景
+                                </h3>
+                                <ul class="space-y-2 text-neutral-600 dark:text-neutral-400">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-amber-600 mt-1">•</span>
+                                        <span>家庭日常烹饪决策</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-amber-600 mt-1">•</span>
+                                        <span>减少食材浪费</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-amber-600 mt-1">•</span>
+                                        <span>饮食偏好个性化管理</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-amber-600 mt-1">•</span>
+                                        <span>快手菜智能推荐</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="p-6 bg-gradient-to-br from-amber-50 to-neutral-50 dark:from-amber-900/20 dark:to-neutral-800 rounded-xl border border-amber-200 dark:border-amber-800">
+                                <p class="text-neutral-700 dark:text-neutral-300 text-sm font-medium">
+                                    💡 核心价值:让烹饪变得更简单、更高效、更个性化
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: 核心功能需求 -->
+            <div class="slide absolute w-full h-full flex items-center justify-center opacity-0 transition-opacity duration-500">
+                <div class="max-w-5xl mx-auto px-8 w-full">
+                    <div class="mb-12">
+                        <span class="text-amber-700 dark:text-amber-400 text-sm font-medium">02 - 用户需求</span>
+                        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100 mt-4">
+                            核心功能需求
+                        </h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-6 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700 hover:border-amber-600 dark:hover:border-amber-600 transition-all duration-300">
+                            <div class="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center mb-4">
+                                <span class="text-2xl">🔍</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">核心搜索</h3>
+                            <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-3">
+                                用户输入现有食材,系统返回可制作的菜谱列表。
+                            </p>
+                            <div class="text-xs text-neutral-500 dark:text-neutral-500 bg-neutral-100 dark:bg-neutral-700/50 px-3 py-2 rounded">
+                                需求ID: U-1
+                            </div>
+                        </div>
+                        <div class="p-6 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700 hover:border-amber-600 dark:hover:border-amber-600 transition-all duration-300">
+                            <div class="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center mb-4">
+                                <span class="text-2xl">📋</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">菜谱详情</h3>
+                            <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-3">
+                                展示完整食材、烹饪步骤、时长等,并标注已有与缺少的食材。
+                            </p>
+                            <div class="text-xs text-neutral-500 dark:text-neutral-500 bg-neutral-100 dark:bg-neutral-700/50 px-3 py-2 rounded">
+                                需求ID: U-2
+                            </div>
+                        </div>
+                        <div class="p-6 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700 hover:border-amber-600 dark:hover:border-amber-600 transition-all duration-300">
+                            <div class="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center mb-4">
+                                <span class="text-2xl">✨</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">模糊匹配</h3>
+                            <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-3">
+                                支持缺少1-2种非核心食材的菜谱推荐,提升匹配灵活性。
+                            </p>
+                            <div class="text-xs text-neutral-500 dark:text-neutral-500 bg-neutral-100 dark:bg-neutral-700/50 px-3 py-2 rounded">
+                                需求ID: U-3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: 筛选与辅助功能 -->
+            <div class="slide absolute w-full h-full flex items-center justify-center opacity-0 transition-opacity duration-500">
+                <div class="max-w-5xl mx-auto px-8 w-full">
+                    <div class="mb-12">
+                        <span class="text-amber-700 dark:text-amber-400 text-sm font-medium">02 - 用户需求</span>
+                        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100 mt-4">
+                            筛选与辅助功能
+                        </h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-semibold text-neutral-900 dark:text-neutral-100 mb-6">筛选功能</h3>
+                            <div class="p-5 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700">
+                                <div class="flex items-start gap-4">
+                                    <span class="text-xl">⚡</span>
+                                    <div>
+                                        <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-1">快速筛选</h4>
+                                        <p class="text-sm text-neutral-600 dark:text-neutral-400">按烹饪时长、餐食类型、菜系风味筛选</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-5 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700">
+                                <div class="flex items-start gap-4">
+                                    <span class="text-xl">🥗</span>
+                                    <div>
+                                        <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-1">饮食偏好</h4>
+                                        <p class="text-sm text-neutral-600 dark:text-neutral-400">支持素食、无麸质、过敏原排除等偏好设置</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-semibold text-neutral-900 dark:text-neutral-100 mb-6">辅助功能</h3>
+                            <div class="p-5 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700">
+                                <div class="flex items-start gap-4">
+                                    <span class="text-xl">🗄️</span>
+                                    <div>
+                                        <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-1">虚拟食品柜</h4>
+                                        <p class="text-sm text-neutral-600 dark:text-neutral-400">保存常备食材,无需重复输入</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-5 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700">
+                                <div class="flex items-start gap-4">
+                                    <span class="text-xl">⭐</span>
+                                    <div>
+                                        <h4 class="font-semibold text-neutral-900 dark:text-neutral-100 mb-1">收藏与发现</h4>
+                                        <p class="text-sm text-neutral-600 dark:text-neutral-400">收藏喜爱菜谱,浏览热门与新菜谱</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: 业务逻辑核心 -->
+            <div class="slide absolute w-full h-full flex items-center justify-center opacity-0 transition-opacity duration-500">
+                <div class="max-w-5xl mx-auto px-8 w-full">
+                    <div class="mb-12">
+                        <span class="text-amber-700 dark:text-amber-400 text-sm font-medium">02 - 用户需求</span>
+                        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100 mt-4">
+                            核心业务逻辑
+                        </h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-6 bg-gradient-to-br from-amber-50 to-neutral-50 dark:from-amber-900/20 dark:to-neutral-800 rounded-xl border border-amber-200 dark:border-amber-800">
+                            <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-4">食材标准化</h3>
+                            <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-4">
+                                通过别名表实现食材的模糊匹配:"土豆"、"马铃薯"、"洋芋"统一映射到同一食材ID。
+                            </p>
+                            <div class="bg-white dark:bg-neutral-800/50 rounded-lg p-4 text-xs font-mono text-neutral-700 dark:text-neutral-300">
+                                <div class="mb-2">标准名: 马铃薯</div>
+                                <div class="text-amber-600 dark:text-amber-400">别名: ["土豆", "洋芋"]</div>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-gradient-to-br from-amber-50 to-neutral-50 dark:from-amber-900/20 dark:to-neutral-800 rounded-xl border border-amber-200 dark:border-amber-800">
+                            <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-4">核心匹配算法</h3>
+                            <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-4">
+                                基于核心食材标记实现智能排序:优先推荐缺少食材少、核心食材完整的菜谱。
+                            </p>
+                            <div class="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 bg-amber-600 rounded-full"></span>
+                                    <span>第一优先级: 核心食材完整度</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 bg-amber-600 rounded-full"></span>
+                                    <span>第二优先级: 缺少食材数量</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 bg-amber-600 rounded-full"></span>
+                                    <span>第三优先级: 匹配食材数量</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:col-span-2 p-6 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700">
+                            <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-4">匹配示例</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                <div class="p-4 bg-neutral-50 dark:bg-neutral-700/50 rounded-lg">
+                                    <div class="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">用户食材</div>
+                                    <div class="text-neutral-600 dark:text-neutral-400">鸡肉、花生、葱</div>
+                                </div>
+                                <div class="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-800">
+                                    <div class="font-semibold text-green-900 dark:text-green-100 mb-2">推荐: 白切鸡 ✓</div>
+                                    <div class="text-green-700 dark:text-green-300 text-xs">核心完整,缺2种调料</div>
+                                </div>
+                                <div class="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-200 dark:border-amber-800">
+                                    <div class="font-semibold text-amber-900 dark:text-amber-100 mb-2">次选: 宫保鸡丁</div>
+                                    <div class="text-amber-700 dark:text-amber-300 text-xs">核心完整,缺3种配料</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7: ER模型概览 -->
+            <div class="slide absolute w-full h-full flex items-center justify-center opacity-0 transition-opacity duration-500">
+                <div class="max-w-6xl mx-auto px-8 w-full">
+                    <div class="mb-12">
+                        <span class="text-amber-700 dark:text-amber-400 text-sm font-medium">03 - ER模型</span>
+                        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100 mt-4">
+                            数据库ER模型概览
+                        </h2>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                        <div class="p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl border-2 border-emerald-200 dark:border-emerald-800 text-center">
+                            <div class="text-3xl font-bold text-emerald-700 dark:text-emerald-300 mb-1">10</div>
+                            <div class="text-sm text-emerald-600 dark:text-emerald-400">实体集</div>
+                        </div>
+                        <div class="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-xl border-2 border-amber-200 dark:border-amber-800 text-center">
+                            <div class="text-3xl font-bold text-amber-700 dark:text-amber-300 mb-1">7</div>
+                            <div class="text-sm text-amber-600 dark:text-amber-400">联系集</div>
+                        </div>
+                        <div class="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border-2 border-blue-200 dark:border-blue-800 text-center">
+                            <div class="text-3xl font-bold text-blue-700 dark:text-blue-300 mb-1">50+</div>
+                            <div class="text-sm text-blue-600 dark:text-blue-400">属性</div>
+                        </div>
+                        <div class="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl border-2 border-purple-200 dark:border-purple-800 text-center">
+                            <div class="text-3xl font-bold text-purple-700 dark:text-purple-300 mb-1">5</div>
+                            <div class="text-sm text-purple-600 dark:text-purple-400">多对多关系</div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-6 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700">
+                            <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">核心实体</h3>
+                            <div class="space-y-3 text-sm">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-3 h-3 bg-green-500 rounded"></div>
+                                    <span class="font-medium text-neutral-900 dark:text-neutral-100">Recipes</span>
+                                    <span class="text-neutral-500 dark:text-neutral-500">- 菜谱信息</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-3 h-3 bg-yellow-500 rounded"></div>
+                                    <span class="font-medium text-neutral-900 dark:text-neutral-100">Ingredients</span>
+                                    <span class="text-neutral-500 dark:text-neutral-500">- 食材信息</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-3 h-3 bg-blue-500 rounded"></div>
+                                    <span class="font-medium text-neutral-900 dark:text-neutral-100">Users</span>
+                                    <span class="text-neutral-500 dark:text-neutral-500">- 用户信息</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-3 h-3 bg-pink-500 rounded"></div>
+                                    <span class="font-medium text-neutral-900 dark:text-neutral-100">Tags</span>
+                                    <span class="text-neutral-500 dark:text-neutral-500">- 标签分类</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-3 h-3 bg-emerald-500 rounded"></div>
+                                    <span class="font-medium text-neutral-900 dark:text-neutral-100">Reviews</span>
+                                    <span class="text-neutral-500 dark:text-neutral-500">- 用户评论</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700">
+                            <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">关键关系</h3>
+                            <div class="space-y-3 text-sm">
+                                <div class="flex items-start gap-3">
+                                    <span class="text-amber-600 dark:text-amber-400 mt-0.5">→</span>
+                                    <div>
+                                        <div class="font-medium text-neutral-900 dark:text-neutral-100">Contains_Ingredient</div>
+                                        <div class="text-neutral-500 dark:text-neutral-500 text-xs">菜谱-食材关联(M:N)</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span class="text-amber-600 dark:text-amber-400 mt-0.5">→</span>
+                                    <div>
+                                        <div class="font-medium text-neutral-900 dark:text-neutral-100">Owns</div>
+                                        <div class="text-neutral-500 dark:text-neutral-500 text-xs">用户-食材(虚拟食品柜,M:N)</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span class="text-amber-600 dark:text-amber-400 mt-0.5">→</span>
+                                    <div>
+                                        <div class="font-medium text-neutral-900 dark:text-neutral-100">Favorites</div>
+                                        <div class="text-neutral-500 dark:text-neutral-500 text-xs">用户-菜谱收藏(M:N)</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span class="text-amber-600 dark:text-amber-400 mt-0.5">→</span>
+                                    <div>
+                                        <div class="font-medium text-neutral-900 dark:text-neutral-100">Has_Tag</div>
+                                        <div class="text-neutral-500 dark:text-neutral-500 text-xs">菜谱-标签分类(M:N)</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span class="text-amber-600 dark:text-amber-400 mt-0.5">→</span>
+                                    <div>
+                                        <div class="font-medium text-neutral-900 dark:text-neutral-100">Has_Review</div>
+                                        <div class="text-neutral-500 dark:text-neutral-500 text-xs">菜谱-评论(1:M)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 8: ER图核心设计亮点 -->
+            <div class="slide absolute w-full h-full flex items-center justify-center opacity-0 transition-opacity duration-500">
+                <div class="max-w-5xl mx-auto px-8 w-full">
+                    <div class="mb-12">
+                        <span class="text-amber-700 dark:text-amber-400 text-sm font-medium">03 - ER模型</span>
+                        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100 mt-4">
+                            设计亮点
+                        </h2>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="p-6 bg-white dark:bg-neutral-800 rounded-xl border-l-4 border-amber-600">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-8 h-8 bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center text-amber-700 dark:text-amber-300 font-bold">1</div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">is_core_ingredient 标记</h3>
+                                    <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">
+                                        在 Contains_Ingredient 联系中标记核心食材,用于匹配算法优先级判断。例如"宫保鸡丁"的核心是鸡肉和花生,而非盐和香菜。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-white dark:bg-neutral-800 rounded-xl border-l-4 border-amber-600">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-8 h-8 bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center text-amber-700 dark:text-amber-300 font-bold">2</div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">aliases 多值属性</h3>
+                                    <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">
+                                        Ingredients 实体包含 aliases 多值属性,支持食材的模糊搜索与标准化映射,提升用户输入容错性。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-white dark:bg-neutral-800 rounded-xl border-l-4 border-amber-600">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-8 h-8 bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center text-amber-700 dark:text-amber-300 font-bold">3</div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">User_Preferences 弱实体</h3>
+                                    <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">
+                                        通过 Has_Preference 依赖 Users,存储饮食偏好与过敏原,支持个性化菜谱筛选。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-white dark:bg-neutral-800 rounded-xl border-l-4 border-amber-600">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-8 h-8 bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center text-amber-700 dark:text-amber-300 font-bold">4</div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">Steps 弱实体与 Reviews 实体</h3>
+                                    <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">
+                                        Steps 通过 Contains_Step 依赖菜谱,结构化存储烹饪步骤;Reviews 支持用户评分与评论,驱动菜谱质量反馈。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 9: 技术实现要点 -->
+            <div class="slide absolute w-full h-full flex items-center justify-center opacity-0 transition-opacity duration-500">
+                <div class="max-w-5xl mx-auto px-8 w-full">
+                    <div class="mb-12">
+                        <span class="text-amber-700 dark:text-amber-400 text-sm font-medium">03 - ER模型</span>
+                        <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100 mt-4">
+                            技术实现要点
+                        </h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-6 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700">
+                            <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center gap-2">
+                                <span>🔐</span>
+                                <span>约束与规则</span>
+                            </h3>
+                            <div class="space-y-3 text-sm text-neutral-600 dark:text-neutral-400">
+                                <div class="flex items-start gap-2">
+                                    <span class="text-amber-600 mt-1">•</span>
+                                    <span>UNIQUE(user_id, recipe_id) 防止重复收藏/评论</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-amber-600 mt-1">•</span>
+                                    <span>UNIQUE(recipe_id, step_number) 确保步骤顺序唯一</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-amber-600 mt-1">•</span>
+                                    <span>级联删除:删除菜谱时同步删除步骤与评论</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-amber-600 mt-1">•</span>
+                                    <span>rating 字段约束范围 1-5</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700">
+                            <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-4 flex items-center gap-2">
+                                <span>⚡</span>
+                                <span>性能优化</span>
+                            </h3>
+                            <div class="space-y-3 text-sm text-neutral-600 dark:text-neutral-400">
+                                <div class="flex items-start gap-2">
+                                    <span class="text-amber-600 mt-1">•</span>
+                                    <span>在 Recipes 表冗余 average_rating 与 review_count</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-amber-600 mt-1">•</span>
+                                    <span>通过触发器或异步任务维护冗余字段一致性</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-amber-600 mt-1">•</span>
+                                    <span>为高频查询字段(食材名、标签类型)建立索引</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-amber-600 mt-1">•</span>
+                                    <span>使用物化视图加速复杂的匹配查询</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-6 bg-gradient-to-br from-amber-50 to-neutral-50 dark:from-amber-900/20 dark:to-neutral-800 rounded-xl border border-amber-200 dark:border-amber-800">
+                        <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-4">数据完整性保障</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                            <div class="flex items-start gap-2 text-neutral-600 dark:text-neutral-400">
+                                <span class="text-amber-600 mt-1">✓</span>
+                                <span>外键约束确保引用完整性</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-neutral-600 dark:text-neutral-400">
+                                <span class="text-amber-600 mt-1">✓</span>
+                                <span>NOT NULL 约束关键字段</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-neutral-600 dark:text-neutral-400">
+                                <span class="text-amber-600 mt-1">✓</span>
+                                <span>CHECK 约束验证数据范围</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 10: 总结页 -->
+            <div class="slide absolute w-full h-full flex items-center justify-center opacity-0 transition-opacity duration-500">
+                <div class="max-w-5xl mx-auto px-8 text-center">
+                    <h2 class="text-5xl font-bold text-neutral-900 dark:text-neutral-100 mb-8">
+                        总结
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                        <div class="p-6 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700">
+                            <div class="text-4xl mb-4">🎯</div>
+                            <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">需求明确</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400">基于用户痛点设计核心功能与辅助功能</p>
+                        </div>
+                        <div class="p-6 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700">
+                            <div class="text-4xl mb-4">🏗️</div>
+                            <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">模型完备</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400">ER模型涵盖10个实体,7个联系,支持复杂业务</p>
+                        </div>
+                        <div class="p-6 bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700">
+                            <div class="text-4xl mb-4">⚙️</div>
+                            <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-2">设计精巧</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400">核心食材标记、别名匹配、个性化偏好</p>
+                        </div>
+                    </div>
+                    <div class="p-8 bg-gradient-to-br from-amber-50 to-neutral-50 dark:from-amber-900/20 dark:to-neutral-800 rounded-2xl border border-amber-200 dark:border-amber-800">
+                        <p class="text-xl text-neutral-700 dark:text-neutral-300 mb-4">
+                            通过系统化的数据库设计,实现从用户需求到技术实现的完整闭环
+                        </p>
+                        <p class="text-sm text-neutral-500 dark:text-neutral-500">
+                            Recipe Today - 让烹饪决策更智能
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 导航控制 -->
+        <div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+            <div class="bg-white/80 dark:bg-neutral-800/80 backdrop-blur-sm rounded-full px-6 py-3 flex items-center gap-4 shadow-lg border border-neutral-200 dark:border-neutral-700">
+                <button id="prevBtn" class="w-10 h-10 rounded-full bg-neutral-100 dark:bg-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-600 flex items-center justify-center transition-colors duration-200">
+                    <span class="text-neutral-700 dark:text-neutral-300">←</span>
+                </button>
+                <div class="flex items-center gap-2">
+                    <span id="currentSlide" class="text-neutral-900 dark:text-neutral-100 font-semibold">1</span>
+                    <span class="text-neutral-500 dark:text-neutral-500">/</span>
+                    <span id="totalSlides" class="text-neutral-500 dark:text-neutral-500">10</span>
+                </div>
+                <button id="nextBtn" class="w-10 h-10 rounded-full bg-amber-600 hover:bg-amber-700 flex items-center justify-center transition-colors duration-200">
+                    <span class="text-white">→</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 主题切换按钮 -->
+        <button id="themeToggle" class="fixed top-8 right-8 z-50 w-12 h-12 rounded-full bg-white dark:bg-neutral-800 shadow-lg border border-neutral-200 dark:border-neutral-700 flex items-center justify-center hover:scale-110 transition-transform duration-200">
+            <span id="themeIcon" class="text-xl">🌙</span>
+        </button>
+
+        <!-- 进度条 -->
+        <div class="fixed top-0 left-0 w-full h-1 bg-neutral-200 dark:bg-neutral-700 z-50">
+            <div id="progressBar" class="h-full bg-amber-600 transition-all duration-300" style="width: 10%"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript脚本 -->
+    <script src="script.js"></script>
+</body>
+</html>
